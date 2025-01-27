@@ -5,7 +5,7 @@ const model = new ChatGoogleGenerativeAI({
     model: "gemini-1.5-flash"
 })
 
-const promptTemplate = ChatPromptTemplate([
+const promptTemplate = ChatPromptTemplate.fromMessages([
     ["system", "Your are an export in {area_of_expertise}"],
     ["user", "{question}"]
 ])
