@@ -3,8 +3,9 @@ import { ChatGoogleGenerativeAI } from '@langchain/google-genai';
 import { env } from '../config.js';
 
 const model = new ChatGoogleGenerativeAI({
-    model: "gemini-1.5-flash",
-    apiKey: env.apiKey
+    model: env.google.model,
+    apiKey: env.google.apiKey,
+    maxOutputTokens: 512
 });
 
 const systemPrompt = PromptTemplate.fromTemplate("You are a useful AI assistant who is also a movie buff");

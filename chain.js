@@ -4,8 +4,9 @@ import { StringOutputParser } from '@langchain/core/output_parsers'
 import { env } from './config.js';
 
 const model = new ChatGoogleGenerativeAI({
-    model: "gemini-1.5-flash",
-    apiKey: env.apiKey
+    model: env.google.model,
+    apiKey: env.google.apiKey,
+    maxOutputTokens: 512
 });
 
 const promptTemplate = ChatPromptTemplate.fromMessages([
@@ -20,6 +21,6 @@ const chatChain = promptTemplate.pipe(model).pipe(stringParser);
 const response = await chatChain.invoke({
     area_of_expertise: "Computer Engineering",
     question: "How do CPUs work?"
-})
+});
 
-console.log(response)
+console.log(response);
