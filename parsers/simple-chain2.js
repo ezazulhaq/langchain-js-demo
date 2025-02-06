@@ -1,8 +1,6 @@
 import { PromptTemplate } from "@langchain/core/prompts";
 import { env } from "../config.js";
 import { ChatGroq } from "@langchain/groq";
-import { StringOutputParser } from "@langchain/core/output_parsers";
-import { RunnableSequence } from "@langchain/core/runnables";
 
 const groqModel = new ChatGroq({
     model: env.groq.model,
